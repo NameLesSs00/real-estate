@@ -9,6 +9,7 @@ import { getProjects } from '@/lib/api/projects';
 import { getDevelopers } from '@/lib/api/developers';
 import { getRequests } from '@/lib/api/requests';
 import { getLatestDeals } from '@/lib/api/deals';
+import { API_DOMAIN } from '@/lib/api/config';
 
 interface StatCard {
   title: string;
@@ -179,7 +180,7 @@ export default function DashboardPage() {
                   <div className="flex items-center gap-4">
                     <div className="relative w-[90px] h-[65px] rounded-xl overflow-hidden bg-gray-100 shrink-0">
                       <Image
-                        src={unit.imageUrls?.[0] ? (unit.imageUrls[0].startsWith('http') ? unit.imageUrls[0] : `https://api.thegate-estates.com/${unit.imageUrls[0]}`) : '/assists/defaultImage.png'}
+                        src={unit.imageUrls?.[0] ? (unit.imageUrls[0].startsWith('http') ? unit.imageUrls[0] : `${API_DOMAIN}/${unit.imageUrls[0]}`) : '/assists/defaultImage.png'}
                         alt={unit.name}
                         fill
                         className="object-cover"

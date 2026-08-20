@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { getSoldUnits, SoldUnit } from '@/lib/api/units';
 import { getUnitOutsideSoldouts } from '@/lib/api/unitOutsideSoldouts';
 import SoldUnitDetailModal from '@/components/admin/SoldUnitDetailModal';
+import { API_DOMAIN } from '@/lib/api/config';
 
 export default function SoldUnitsPage() {
   const [soldUnits, setSoldUnits] = useState<SoldUnit[]>([]);
@@ -243,7 +244,7 @@ export default function SoldUnitsPage() {
                         {unit.unitImages?.[0] ? (
                           <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-gray-100 shrink-0">
                             <Image
-                              src={unit.unitImages[0].startsWith('http') ? unit.unitImages[0] : `https://api.thegate-estates.com/${unit.unitImages[0]}`}
+                              src={unit.unitImages[0].startsWith('http') ? unit.unitImages[0] : `${API_DOMAIN}/${unit.unitImages[0]}`}
                               alt={unit.unitName}
                               fill
                               className="object-cover"

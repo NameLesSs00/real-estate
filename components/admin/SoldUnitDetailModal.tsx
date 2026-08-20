@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { getSoldUnitById, SoldUnit } from '@/lib/api/units';
 import { useEscapeKey } from '@/hooks/useEscapeKey';
+import { API_DOMAIN } from '@/lib/api/config';
 
 interface SoldUnitDetailModalProps {
   isOpen: boolean;
@@ -36,7 +37,7 @@ export default function SoldUnitDetailModal({ isOpen, soldUnitId, onClose }: Sol
     new Date(d).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
 
   const resolveImage = (url: string) =>
-    url.startsWith('http') ? url : `https://api.thegate-estates.com/${url}`;
+    url.startsWith('http') ? url : `${API_DOMAIN}/${url}`;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">

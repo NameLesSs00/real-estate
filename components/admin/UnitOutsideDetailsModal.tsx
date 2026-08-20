@@ -11,6 +11,7 @@ import {
   deleteUnitOutsideImage,
   UnitOutside,
 } from '@/lib/api/unitOutsides';
+import { API_DOMAIN } from '@/lib/api/config';
 
 interface UnitOutsideDetailsModalProps {
   isOpen: boolean;
@@ -20,7 +21,7 @@ interface UnitOutsideDetailsModalProps {
   onMarkSold?: (unit: UnitOutside) => void;
 }
 
-const API_IMG_BASE = 'https://api.thegate-estates.com';
+const API_IMG_BASE = API_DOMAIN;
 
 function resolveImageUrl(url: string): string {
   if (!url) return '';

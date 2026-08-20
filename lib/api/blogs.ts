@@ -1,4 +1,4 @@
-import { API_BASE_URL } from './config';
+import { API_BASE_URL, API_DOMAIN } from './config';
 import { getHeaders } from './common';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
@@ -58,10 +58,10 @@ export function getBlogImageUrl(url?: string) {
   const cleanUrl = url.startsWith('/') ? url.slice(1) : url;
   
   if (!cleanUrl.includes('images/blogs/')) {
-    return `https://api.thegate-estates.com/images/blogs/${cleanUrl}`;
+    return `${API_DOMAIN}/images/blogs/${cleanUrl}`;
   }
   
-  return `https://api.thegate-estates.com/${cleanUrl}`;
+  return `${API_DOMAIN}/${cleanUrl}`;
 }
 
 // ── API Functions ─────────────────────────────────────────────────────────────

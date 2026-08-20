@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { API_HOSTNAME, API_DOMAIN } from "./lib/api/config";
 
 const nextConfig: NextConfig = {
   images: {
@@ -10,7 +11,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'api.thegate-estates.com',
+        hostname: API_HOSTNAME,
       },
       {
         protocol: 'https',
@@ -22,7 +23,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: '/backend/:path*',
-        destination: 'https://api.thegate-estates.com/:path*',
+        destination: `${API_DOMAIN}/:path*`,
       },
     // return [
     //   {
